@@ -13,9 +13,12 @@ let rollbar = new Rollbar({
     captureUnhandledRejections: true
 })
 
-const ctrl = require('./controllers/controller')
+// const ctrl = require('./controllers/controller')
 
-app.get('/', ctrl.getPath) 
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, './client/index.html'))
+    rollbar.info('html file served succesfully')
+}) 
 
 
 const port = process.env.PORT || 4000
