@@ -4,7 +4,7 @@ const Rollbar = require('rollbar')
 
 
 const app = express()
-const names = []
+let names = []
 app.use(express.json())
 app.use('/style', express.static('./client/styles.css'))
 app.use('/javascript', express.static('.client/main.js'))
@@ -33,7 +33,7 @@ app.post('/api/name', (req, res)=>{
         rollbar.log('Name  added successfully', {author: 'Austin'})
         res.status(200).send(names)
     } else if (name === ''){
-        rollbar.error('No name giver')
+        rollbar.error('No name given')
         res.status(400).send('must provide a name.')
     } else {
         rollbar.error('Name already added')
