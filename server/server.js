@@ -15,7 +15,7 @@ let rollbar = new Rollbar({
 
 const ctrl = require('./controllers/controller')
 
-app.get('/', getPath) 
+app.get('/', ctrl.getPath) 
 
 
 const port = process.env.PORT || 4000
