@@ -8,7 +8,7 @@ app.use(express.json())
 app.use('style', express.static('./client/styles.css'))
 
 let rollbar = new Rollbar({
-    accessToken: "",
+    accessToken: "2ed0a5412b634cbd967f10674691d898",
     captureUncaught: true, 
     captureUnhandledRejections: true
 })
